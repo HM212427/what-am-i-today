@@ -1,0 +1,250 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+  background: black;
+}
+
+:root {
+  --primary-text-color: #f3f0e9;
+  --secondary-text-color: #8c8a84;
+  --tetriary-text-color: #4e4e4e;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.content {
+  transition: .1s ease;
+  z-index: 0;
+}
+
+.content.is-blurred {
+  filter: blur(7px);
+  transform: scale(1.05);
+  user-select: none;
+}
+
+.ambient {
+  position: absolute;
+  z-index: -1;
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  filter: blur(130px);
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.ambient-top {
+  top: -10vh;
+  right: -60vw;
+  background: #4af0e7;
+}
+
+.ambient-bottom {
+  bottom: -15vh;
+  left: -70vw;
+  background: #06ba9f;
+}
+
+.check-in {
+  width: min(100%, 410px);
+  text-align: center;
+}
+
+.check-in h1 {
+  color: var(--primary-text-color);
+  font-size: clamp(44px, 12vw, 64px);
+  font-weight: 500;
+  letter-spacing: -0.075em;
+  line-height: 0.99;
+}
+
+.intro {
+  margin-top: 18px;
+  color: var(--secondary-text-color);
+  font-size: 14px;
+  letter-spacing: 0.01em;
+}
+
+.date-form {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.date-picker {
+  display: flex;
+  width: min(100%, 360px);
+  align-items: center;
+  justify-content: center;
+  gap: clamp(4px, 2vw, 12px);
+  padding: 21px 14px 23px;
+  border: 1px solid #272727;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #151515, #101010);
+}
+
+.date-unit {
+  width: clamp(62px, 20vw, 78px);
+}
+
+.date-unit-year {
+  width: clamp(86px, 27vw, 112px);
+}
+
+.date-unit input {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--primary-text-color);
+  font: inherit;
+  font-size: clamp(34px, 11vw, 48px);
+  font-weight: 400;
+  letter-spacing: -0.07em;
+  line-height: 1.1;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.date-unit input::placeholder {
+  color: var(--secondary-text-color);
+  opacity: 1;
+}
+
+.date-unit input::-webkit-inner-spin-button,
+.date-unit input::-webkit-outer-spin-button {
+  margin: 0;
+  appearance: none;
+}
+
+.date-unit input:focus-visible,
+.submit-button:focus-visible,
+.intro-button:focus-visible {
+  outline: 2px solid #c5b8ff;
+  outline-offset: 4px;
+}
+
+.date-separator {
+  align-self: center;
+  color: #5b5954;
+  font-size: 32px;
+  font-weight: 300;
+}
+
+.submit-button,
+.intro-button {
+  width: min(100%, 360px);
+  min-height: 54px;
+  display: grid;
+  place-items: center;
+  margin-top: 22px;
+  border-radius: 14px;
+  background: #e6e1d7;
+  color: #151515;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: .01em;
+  cursor: pointer;
+  transition: .15 ease;
+}
+
+.submit-button:hover,
+.intro-button:hover {
+  transform: translateY(-1px);
+  background: #fffdf7;
+}
+
+.submit-button span,
+.intro-button span {
+  font-size: 16px;
+}
+
+.overlay {
+  top: 0;
+  left: 0;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  width: 100%;
+  height: 100%;
+  padding: 0 24px 16px 24px;
+  background: linear-gradient(to bottom, transparent, #0000007a 36%, #000000f0 72%, transparent);
+  /* background: linear-gradient(to top, black, transparent); */
+  z-index: 2;
+  
+  .topline {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+  }
+  
+  .topline video {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    /* background: red; */
+  }
+  
+  h2 {
+    margin-top: auto;
+    color: var(--primary-text-color);
+    font-size: clamp(21px, 5vw, 26px);
+    font-weight: 500;
+    letter-spacing: -0.06em;
+    line-height: 1.15;
+    text-transform: capitalize;
+  }
+  
+  p {
+    max-width: 430px;
+    margin: 22px 0 0;
+    color: var(--secondary-text-color);
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  h6 {
+    margin-top: 22px;
+    color: var(--tetriary-text-color);
+    font-weight: 500;
+  }
+}
+
+.troubleshoot {
+  bottom: 24px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-weight: 400;
+  color: var(--tetriary-text-color);
+  
+  span {
+    margin-left: 4px;
+    color: red;
+    text-decoration: underline;
+  }
+}
