@@ -35,7 +35,7 @@ function App() {
       {overlay2 && (
         <div className="overlay" onClick={() => setShowIntro(false)}>
           <div className="topline">
-            <video autoPlay muted loop src={'/greetings.mp4'} />
+            <video autoPlay muted loop src={'./greetings.mp4'} />
             <h2 id="title">welcome to the future teller, [user]!</h2>
           </div>
           <p>A highly sophisticated, yet extremely simple system. Select any date you'd like to see what's fated for you. <br/> Excited?</p>
